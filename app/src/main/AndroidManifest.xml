@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.asetdsi">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AsetDSI"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31"
+        android:requestLegacyExternalStorage="true">
+
+        <service
+            android:name=".services.PushNotificationService"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".CobaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuktiFotoOngoingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailOngoingPengusulanMaintenenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuktiFotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailHistoryPengusulanMaintenenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailPengusulanPeminjamanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailOngoingPengusulanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailHistoryPengusulanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetaillOngoingPeminjamanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailHistoryPeminjamanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PengusulanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PJPengusulanActivity"
+            android:exported="true"
+            android:label="@string/title_activity_pj_pengusulan" />
+        <activity
+            android:name=".TambahFormPengusulanBarangActivity"
+            android:exported="true"
+            android:label="@string/title_activity_form_tambah_lagi_pengusulan" />
+        <activity
+            android:name=".Detail_Form_Pengusulan_Barang_Activity"
+            android:exported="false"
+            android:label="@string/title_activity_detail_pengusulan" />
+        <activity
+            android:name=".FormPengusulanMaintenenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FormPengusulanBarangActivity"
+            android:exported="false"
+            android:label="@string/title_activity_form_pengusulan_barang" />
+        <activity
+            android:name=".FormPeminjamanBangunanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FormPeminjamanBarangActivity"
+            android:exported="false"
+            android:label="@string/title_activity_detail_peminjaman_barang" />
+        <activity
+            android:name=".OngoingPengusulanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryPengusulanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OngoingActivity"
+            android:exported="true"
+            android:label="@string/title_activity_ongoing" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="true"
+            android:label="@string/title_activity_history" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="true"
+            android:label="@string/title_activity_change_password" />
+        <activity
+            android:name=".TestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DaftarBarangActivity"
+            android:exported="true"
+            android:label="@string/title_activity_daftar_barang" />
+        <activity
+            android:name=".ProfileditActivity"
+            android:exported="true"
+            android:label="@string/title_activity_profile_edit" />
+        <activity
+            android:name=".SettingActivity"
+            android:exported="true"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".PeminjamanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PJActivity"
+            android:exported="true"
+            android:label="@string/title_activity_penanggung_jawab" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:label="@string/title_activity_home" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

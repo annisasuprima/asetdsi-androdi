@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.BarangFragment"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPnj"
+        android:layout_width="match_parent"
+        android:layout_height="490dp"
+        android:scrollbars="vertical"
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/list_peminjaman" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:elevation="10dp"
+        android:padding="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="Sudah selesai memiliih?"
+            android:maxLines="2"
+            android:lines="2"
+            android:gravity="top"
+            android:textColor="@color/ijau"
+            android:textStyle="italic"
+            />
+
+        <Button
+            android:id="@+id/BtnTambahBarang"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:backgroundTint="@color/oren"
+            android:elevation="10dp"
+            android:text="Tambah"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
+</LinearLayout>

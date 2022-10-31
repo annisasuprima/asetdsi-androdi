@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormPeminjamanBangunanActivity"
+    android:background="@color/ijau">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:padding="10dp"
+            android:gravity="center"
+            tools:ignore="MissingConstraints">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/pjCv"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:backgroundTint="@color/white"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/gambar_form_peminjaman_bangunan_act"
+                        android:layout_width="150dp"
+                        android:layout_height="90dp"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/karpet"
+
+                        />
+
+                    <RelativeLayout
+                        android:id="@+id/BarangList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/nama_form_peminjaman_bgn_act"
+                            android:layout_width="140dp"
+                            android:layout_height="30dp"
+                            android:gravity="center_vertical"
+                            android:hint="Sound System"
+                            android:lines="2"
+                            android:maxLines="3"
+                            android:paddingHorizontal="5dp"
+                            android:textColor="@color/ijau"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_white_bg"
+            android:backgroundTint="@color/white"
+            tools:ignore="MissingConstraints"
+            android:layout_gravity="bottom"
+            >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="MissingConstraints"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="30dp">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputDate"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColorHint="@color/muted"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/ijau"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_baseline_calendar_month_24"
+                        app:startIconTint="#1A4D2E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusableInTouchMode="false"
+                            android:hint="Untuk Tanggal.."
+                            android:inputType="none"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            app:endIconMode="clear_text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColorHint="@color/muted"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/ijau"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_baseline_watch_later_24"
+                        app:startIconTint="#1A4D2E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/jam_peminjaman_bangunan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Untuk jam.."
+                            android:textColor="@color/black"
+                            app:endIconMode="clear_text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColorHint="@color/muted"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/ijau"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_baseline_description_24"
+                        app:startIconTint="#1A4D2E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/keterangan_peminjaman_bangunan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Keterangan Peminjaman"
+                            android:textColor="@color/black"
+                            app:endIconMode="clear_text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp" />
+
+                    <Button
+                        android:id="@+id/tambahPeminjamanBangunan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/oren"
+                        android:onClick="TambahPeminjamanBangunan"
+                        android:text="Tambah" />
+
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

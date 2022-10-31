@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ijau"
+    android:orientation="vertical"
+    tools:context=".PeminjamanActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        android:layout_margin="20dp"
+        android:paddingTop="15dp">
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="search...."
+            app:defaultQueryHint="search..."
+            tools:ignore="MissingConstraints"
+            />
+
+        <TextView
+            android:id="@+id/pj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="10dp"
+            android:text="Laboratorium Dasar Komputasi"
+            android:lines="2"
+            android:maxLines="2"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            tools:ignore="MissingConstraints" />
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_white_bg"
+        android:layout_marginTop="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:paddingLeft="20dp"
+            android:text="Pilih Barang"
+            android:textColor="@color/ijau"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+
+            android:background="@color/muted"
+            android:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPnj"
+            android:layout_width="match_parent"
+            android:layout_height="460dp"
+            android:layout_marginTop="50dp"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/list_peminjaman" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="500dp"
+            android:background="@drawable/search"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+            <Button
+                android:id="@+id/BtnEditProfile"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/oren"
+                android:elevation="10dp"
+                android:text="Tambah"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:visibility="visible"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
