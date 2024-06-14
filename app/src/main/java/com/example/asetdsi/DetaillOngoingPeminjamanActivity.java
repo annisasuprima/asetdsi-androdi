@@ -42,6 +42,7 @@ public class DetaillOngoingPeminjamanActivity extends AppCompatActivity {
     TextView keterangan_history_donj;
     TextView tanggal_history_donj;
     TextView jam_history_donj;
+    TextView getJam_history_donj_end;
     TextView status_history_donj;
 
     @Override
@@ -68,6 +69,10 @@ public class DetaillOngoingPeminjamanActivity extends AppCompatActivity {
         String jam_history = OngoingpeminjamanIntent.getStringExtra("jam_history");
         jam_history_donj = findViewById(R.id.jam_history_donj);
         jam_history_donj.setText(jam_history);
+
+        String jam_history_end = OngoingpeminjamanIntent.getStringExtra("jam_history_end");
+        getJam_history_donj_end = findViewById(R.id.jam_history_donj_end);
+        getJam_history_donj_end.setText(jam_history_end);
 
         String status_history = OngoingpeminjamanIntent.getStringExtra("status_history");
         status_history_donj = findViewById(R.id.status_history_donj);

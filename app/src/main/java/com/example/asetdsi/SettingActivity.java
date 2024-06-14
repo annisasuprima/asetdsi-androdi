@@ -24,6 +24,7 @@ import com.example.asetdsi.model.SettingClass;
 import com.example.asetdsi.model.SettingData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,7 +54,7 @@ public class SettingActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView= findViewById(R.id.bottomNavigation);
 
         //Set Home Selected
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.setting);
 
         //perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -198,7 +199,7 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LogOut();
-                Toast.makeText(getApplicationContext(), "ANDA SUDAH KELUAR", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "ANDA SUDAH KELUAR", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -223,9 +224,44 @@ public class SettingActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.apply();
-        Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+//        Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
+//        startActivity(intent);
+//        finish();
+
+        new SweetAlertDialog(SettingActivity.this, SweetAlertDialog.WARNING_TYPE)
+                .setContentText("Yakin Ingin Logout?")
+                .setCancelText("Batal")
+                .setConfirmText("Ya")
+                .showCancelButton(true)
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                        sweetAlertDialog.cancel();
+                    }
+                })
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.cancel();
+                    }
+                })
+                .show();
+
+//        new SweetAlertDialog(SettingActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+//                .setTitleText("Berhasil!")
+//                .setContentText("Peminjaman Barang Berhasil!")
+//                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                    @Override
+//                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                        Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
+//                        startActivity(intent);
+//                        finish();
+//                    }
+//                })
+//                .show();
 
     }
 

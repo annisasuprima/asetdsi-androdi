@@ -4,6 +4,7 @@ import com.example.asetdsi.model.AuthClass;
 import com.example.asetdsi.model.BuktiFotoOngoingResponse;
 import com.example.asetdsi.model.BuktiFotoResponse;
 import com.example.asetdsi.model.ChangePasswordClass;
+import com.example.asetdsi.model.DaftarBarangMaintenenceResponse;
 import com.example.asetdsi.model.DaftarBarangResponse;
 import com.example.asetdsi.model.DetailHistoryPeminjamanResponse;
 import com.example.asetdsi.model.DetailHistoryPengusulanMaintenenceResponse;
@@ -22,17 +23,16 @@ import com.example.asetdsi.model.OngoingPeminjamanResponse;
 import com.example.asetdsi.model.OngoingPengusulanResponse;
 import com.example.asetdsi.model.PJPengusulanResponse;
 import com.example.asetdsi.model.PJResponse;
+import com.example.asetdsi.model.Peminjaman;
+import com.example.asetdsi.model.PeminjamanBarangResponse;
 import com.example.asetdsi.model.PengusulanBarang;
-import com.example.asetdsi.model.PengusulanBarangItem;
 import com.example.asetdsi.model.PengusulanBarangResponse;
 import com.example.asetdsi.model.RegisterClass;
 import com.example.asetdsi.model.SettingClass;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -47,7 +47,7 @@ import retrofit2.http.Query;
 
 public interface PortalClient {
 
-    String API_BASE_URL = "http://192.168.0.105:8000/api/";
+    String API_BASE_URL = "http://192.168.226.196:8000/api/";
 
     @FormUrlEncoded
     @POST("auth/login")
@@ -74,7 +74,7 @@ public interface PortalClient {
     Call<EditProfileClass> getEditProfile(
             @Header("Authorization") String token,
             @Field("name") String name,
-            @Field("nim") String nim,
+//            @Field("nim") String nim,
             @Field("email") String email,
             @Field("username") String username
     );
@@ -146,21 +146,6 @@ public interface PortalClient {
     Call<BuktiFotoOngoingResponse> getBuktiFotoMt (@Header("Authorization") String token, @Path("id") Integer id);
 
 
-    @Headers({"Accept: application/json"})
-    @Multipart
-    @POST("storepengusulan/{id}")
-    Call<PengusulanBarangResponse> getPengusulanbarang(
-            @Header("Authorization") String token,
-            @Path("id") Integer id,
-            @Query("proposal_description") String proposal_description,
-            @Part("data[]") ArrayList<PengusulanBarang> listData
-//            @Field("spesification_detail") String spesification_detail,
-//            @Field("amount") Integer amount,
-//            @Field("unit_price") Integer unit_price,
-//            @Field("source_shop") String source_shop
-    );
-
-
 
 //    @Multipart
 //    @POST("storepengusulan/{id}")
@@ -183,10 +168,43 @@ public interface PortalClient {
             @Field("photo") String photo,
             @Field("loan_date") String loan_date,
             @Field("loan_time") String loan_time,
+            @Field("loan_time_end") String loan_time_end,
             @Field("loan_description") String loan_description
     );
 
+    @GET("barangmt/{id}")
+    Call<DaftarBarangMaintenenceResponse> getBarangMt (@Header("Authorization") String token, @Path("id") Integer id);
 
+    @Headers({"Accept: application/json"})
+    @Multipart
+    @POST("storepengusulan/{id}")
+    Call<PengusulanBarangResponse> getPengusulanbarang(
+            @Header("Authorization") String token,
+            @Query("proposal_description") String proposal_description,
+            @Part("data[]") ArrayList<PengusulanBarang> listData
+//            @Field("spesification_detail") String spesification_detail,
+//            @Field("amount") Integer amount,
+//            @Field("unit_price") Integer unit_price,
+//            @Field("source_shop") String source_shop
+    );
+
+
+    @Headers({"Accept: application/json"})
+    @Multipart
+    @POST("storeBarang/{id}")
+    Call<PeminjamanBarangResponse> getPeminjamanBarang(
+            @Header("Authorization") String token,
+            @Path("id") Integer id,
+            @Query("loan_description") String loan_description,
+            @Query("loan_date") String loan_date,
+            @Query("loan_time") String loan_time,
+            @Query("loan_time_end") String loan_time_end,
+            @Part("data[]") ArrayList<Peminjaman> listData
+//            @Field("spesification_detail") String spesification_detail,
+//            @Field("amount") Integer amount,
+//            @Field("unit_price") Integer unit_price,
+//            @Field("source_shop") String source_shop
+    );
 
 
 }

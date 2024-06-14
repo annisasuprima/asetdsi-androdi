@@ -16,6 +16,9 @@ public class ListPeminjamanBarangItem{
     @SerializedName("pic_id")
     private int picId;
 
+    @SerializedName("inventory_id")
+    private int inventoryId;
+
     @SerializedName("available")
     private String available;
 
@@ -24,6 +27,9 @@ public class ListPeminjamanBarangItem{
 
     @SerializedName("photo")
     private String photo;
+
+    @SerializedName("id")
+    private int id;
 
     @SerializedName("pic_name")
     private String picName;
@@ -44,6 +50,10 @@ public class ListPeminjamanBarangItem{
         return picId;
     }
 
+    public int getInventoryId(){
+        return inventoryId;
+    }
+
     public String getAvailable(){
         return available;
     }
@@ -54,6 +64,10 @@ public class ListPeminjamanBarangItem{
 
     public String getPhoto(){
         return photo;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public String getPicName(){

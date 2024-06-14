@@ -117,11 +117,20 @@ public class PJActivity extends AppCompatActivity implements PJAdapter.OnPjHolde
 
     @Override
     public void onClick(View view,Pj pj) {
+
+        SharedPreferences preferences =
+                getSharedPreferences("com.example.asetdsi.PREFS", MODE_PRIVATE);
+
+        SharedPreferences.Editor pjedit = preferences.edit();
+        pjedit.putString("pic_id", String.valueOf(pj.id));
+        pjedit.apply();
+
+
         Intent peminjamanIntent = new Intent(this,PeminjamanActivity.class);
         peminjamanIntent.putExtra("nama_pj",pj.nama_pj);
         peminjamanIntent.putExtra("id",pj.id);
         startActivity(peminjamanIntent);
-        Toast.makeText(this,"yay uncul",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this,"yay uncul",Toast.LENGTH_SHORT).show();
     }
 
     @Override

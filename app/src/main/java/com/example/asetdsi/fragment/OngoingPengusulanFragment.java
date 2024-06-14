@@ -17,18 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.asetdsi.DetailHistoryPengusulanActivity;
-import com.example.asetdsi.DetailHistoryPengusulanMaintenenceActivity;
 import com.example.asetdsi.DetailOngoingPengusulanActivity;
 import com.example.asetdsi.DetailOngoingPengusulanMaintenenceActivity;
 import com.example.asetdsi.R;
 import com.example.asetdsi.Retrofit.PortalClient;
-import com.example.asetdsi.adapter.OngoingPeminjamanAdapter;
 import com.example.asetdsi.adapter.OngoingPengusulanAdapter;
-import com.example.asetdsi.model.HistoryPengusulan;
-import com.example.asetdsi.model.HistoryPengusulanItem;
-import com.example.asetdsi.model.HistoryPengusulanResponse;
-import com.example.asetdsi.model.OngoingPeminjaman;
 import com.example.asetdsi.model.OngoingPengusulan;
 import com.example.asetdsi.model.OngoingPengusulanItem;
 import com.example.asetdsi.model.OngoingPengusulanResponse;
@@ -106,6 +99,7 @@ public class OngoingPengusulanFragment extends Fragment implements OngoingPengus
                         OngoingPengusulan ongoingPengusulan = new OngoingPengusulan(
                                 ongoingPengusulanItem.getDeskripsi(),
                                 ongoingPengusulanItem.getStatuspr(),
+                                ongoingPengusulanItem.getStatusconfirmfaculty(),
                                 ongoingPengusulanItem.getTypeId(),
                                 ongoingPengusulanItem.getId()
 
@@ -141,6 +135,7 @@ public class OngoingPengusulanFragment extends Fragment implements OngoingPengus
             Intent OngoingpengusulanIntent = new Intent(getContext(), DetailOngoingPengusulanActivity.class);
             OngoingpengusulanIntent.putExtra("keterangan",ongoingPengusulan.ket_op);
             OngoingpengusulanIntent.putExtra("status",ongoingPengusulan.status_ongoing_pengusulan);
+            OngoingpengusulanIntent.putExtra("status_fk",ongoingPengusulan.status_ongoing_pengusulan_fakultas);
             OngoingpengusulanIntent.putExtra("id",ongoingPengusulan.id);
             startActivity(OngoingpengusulanIntent);
 //            Toast.makeText(getActivity(),"yay uncul",Toast.LENGTH_SHORT).show();
@@ -150,6 +145,7 @@ public class OngoingPengusulanFragment extends Fragment implements OngoingPengus
             Intent OngoingpengusulanIntent = new Intent(getContext(), DetailOngoingPengusulanMaintenenceActivity.class);
             OngoingpengusulanIntent.putExtra("keterangan",ongoingPengusulan.ket_op);
             OngoingpengusulanIntent.putExtra("status",ongoingPengusulan.status_ongoing_pengusulan);
+            OngoingpengusulanIntent.putExtra("status_fk",ongoingPengusulan.status_ongoing_pengusulan_fakultas);
             OngoingpengusulanIntent.putExtra("id",ongoingPengusulan.id);
             startActivity(OngoingpengusulanIntent);
         }

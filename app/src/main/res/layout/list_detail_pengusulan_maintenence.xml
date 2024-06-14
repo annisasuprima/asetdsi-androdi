@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="1dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:gravity="center|left"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/nama_barang_pengusulanmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Nama Barang"
+                    android:textColor="@color/ijau"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/kode_pengusulan_mt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Kode"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/kondisi_pengusulan_mt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Kondisi"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+
+                <TextView
+                    android:id="@+id/permasalahan_pengusulanmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:lines="2"
+                    android:maxLines="3"
+                    android:text="permasalahan"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/rvDetailPhotoMtRv"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="15dp"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    tools:listitem="@layout/list_rv_array_photomt" />-->
+
+                <TextView
+                    android:id="@+id/photo_pengusulanmt"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:layout_gravity="start"
+                    />
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="@color/abu" />
+
+
+
+        <!--        <RelativeLayout-->
+        <!--            android:id="@+id/expandable_layout"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            tools:ignore="MissingConstraints"-->
+        <!--            android:gravity="bottom">-->
+
+        <!--            <androidx.recyclerview.widget.RecyclerView-->
+        <!--                android:id="@+id/list_photoRv"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="140dp"-->
+        <!--                tools:listitem="@layout/list_photo_detail_maintenence" />-->
+
+        <!--        </RelativeLayout>-->
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

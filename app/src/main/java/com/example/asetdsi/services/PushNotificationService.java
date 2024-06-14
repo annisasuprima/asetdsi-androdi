@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.example.asetdsi.HistoryActivity;
 import com.example.asetdsi.LoginActivity;
 import com.example.asetdsi.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -52,7 +53,7 @@ public class PushNotificationService extends FirebaseMessagingService{
         }
 
         //Buat Pending Intent
-        Intent historyIntent = new Intent(getApplicationContext(), LoginActivity.class);
+        Intent historyIntent = new Intent(getApplicationContext(), HistoryActivity.class);
 
         PendingIntent pendingHistoryIntenet = PendingIntent.getActivity(
                 getApplicationContext(),

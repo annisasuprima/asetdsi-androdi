@@ -41,6 +41,7 @@ public class DetailOngoingPengusulanActivity extends AppCompatActivity {
     RecyclerView rvDetailOpeng;
     TextView keterangan_detail_openg;
     TextView status_detail_openg;
+    TextView status_detail_openg_fakultas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +60,14 @@ public class DetailOngoingPengusulanActivity extends AppCompatActivity {
         String keterangan_ongoing = OngoingPengusulanIntent.getStringExtra("keterangan");
         keterangan_detail_openg= findViewById(R.id.keterangan_detail_openg);
         keterangan_detail_openg.setText(keterangan_ongoing);
-
+//
         String status = OngoingPengusulanIntent.getStringExtra("status");
-       status_detail_openg = findViewById(R.id.status_detail_openg);
+         status_detail_openg = findViewById(R.id.status_detail_openg);
         status_detail_openg.setText(status);
 
+        String statusfk = OngoingPengusulanIntent.getStringExtra("status_fk");
+        status_detail_openg_fakultas = findViewById(R.id.status_detail_openg_fakultas);
+        status_detail_openg_fakultas.setText(statusfk);
 
         actionBar = getSupportActionBar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -107,7 +111,9 @@ public class DetailOngoingPengusulanActivity extends AppCompatActivity {
                                 detailOngoingPengusulanItem.getSpesificationDetail(),
                                 detailOngoingPengusulanItem.getAmount(),
                                 detailOngoingPengusulanItem.getUnitPrice(),
-                                detailOngoingPengusulanItem.getSourceShop()
+                                detailOngoingPengusulanItem.getSourceShop(),
+                                detailOngoingPengusulanItem.getStatuspr(),
+                                detailOngoingPengusulanItem.getStatusconfirmfaculty()
 
                         );
                         listDetailOPeng.add(detailOngoingPengusulan);

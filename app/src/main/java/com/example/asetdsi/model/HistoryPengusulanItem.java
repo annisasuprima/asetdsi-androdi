@@ -22,6 +22,13 @@ public class HistoryPengusulanItem{
     @SerializedName("statuspr")
     private String statuspr;
 
+    @SerializedName("status_confirm_faculty")
+    private String statusconfirmfaculty;
+
+
+    @SerializedName("alasan")
+    private String alasan;
+
     public String getNamaMahasiswa(){
         return namaMahasiswa;
     }
@@ -44,5 +51,13 @@ public class HistoryPengusulanItem{
 
     public String getStatuspr(){
         return statuspr;
+    }
+
+    public String getStatusconfirmfaculty(){
+        return statusconfirmfaculty;
+    }
+
+    public String getAlasan(){
+        return alasan;
     }
 }

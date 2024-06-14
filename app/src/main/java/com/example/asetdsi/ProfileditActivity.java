@@ -21,6 +21,7 @@ import com.example.asetdsi.model.EditProfileData;
 import com.example.asetdsi.model.SettingData;
 import com.google.android.material.textfield.TextInputEditText;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,7 +32,7 @@ public class ProfileditActivity extends AppCompatActivity {
     private Button BtnSaveProfile;
     ActionBar actionBar;
     TextInputEditText edit_nama;
-    TextInputEditText edit_nim;
+//    TextInputEditText edit_nim;
     TextInputEditText edit_email;
     TextInputEditText edit_username;
     String ynama,ynim,yemail,ytelepon;
@@ -44,6 +45,7 @@ public class ProfileditActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.ijau)));
 
+
         SharedPreferences preferences = getApplicationContext().getSharedPreferences(
                 "com.example.asetdsi.PREFS", Context.MODE_PRIVATE
         );
@@ -51,7 +53,7 @@ public class ProfileditActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name =  intent.getStringExtra("name");
-        String nim =  intent.getStringExtra("nim");
+//        String nim =  intent.getStringExtra("nim");
         String email =  intent.getStringExtra("email");
         String username =  intent.getStringExtra("username");
 
@@ -64,7 +66,7 @@ public class ProfileditActivity extends AppCompatActivity {
 
         PortalClient client = retrofit.create(PortalClient.class);
 
-        Call<EditProfileClass> call = client.getEditProfile("Bearer "+accessToken, name, nim, email, username);
+        Call<EditProfileClass> call = client.getEditProfile("Bearer "+accessToken, name, email, username);
         call.enqueue(new Callback<EditProfileClass>() {
             @Override
             public void onResponse(Call<EditProfileClass> call, Response<EditProfileClass> response) {
@@ -78,14 +80,14 @@ public class ProfileditActivity extends AppCompatActivity {
                 if(editProfileClass != null && response.isSuccessful()){
 
                     edit_nama = (TextInputEditText) findViewById(R.id.edit_nama);
-                    edit_nim = (TextInputEditText) findViewById(R.id.edit_nim);
+//                    edit_nim = (TextInputEditText) findViewById(R.id.edit_nim);
                     edit_email = (TextInputEditText) findViewById(R.id.edit_email);
                     edit_username = (TextInputEditText) findViewById(R.id.edit_username);
 
 
 //                  set the string from sp as text of the textview
                     edit_nama.setText(name);
-                    edit_nim.setText(nim);
+//                    edit_nim.setText(nim);
                     edit_email.setText(email);
                     edit_username.setText(username);
 
@@ -109,16 +111,14 @@ public class ProfileditActivity extends AppCompatActivity {
         BtnSaveProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                ynim = edit_nim.getText().toString();
+//
+//                ynim = edit_nim.getText().toString();
                 ynama = edit_nama.getText().toString();
                 yemail = edit_email.getText().toString();
                 ytelepon = edit_username.getText().toString();
 
                 updateData();
-                SettingActivity();
-
-
+//                SettingActivity();
 
             }
         });
@@ -132,12 +132,6 @@ public class ProfileditActivity extends AppCompatActivity {
         );
         String accessToken = preferences.getString("ACCESS_TOKEN","");
 
-//        String name1 = preferences.getString("NAMA", "");
-//        String nim1 = preferences.getString("NIM", "");
-//        String email1 = preferences.getString("EMAIL", "");
-//        String telepon1 = preferences.getString("NO_TELEPON", "");
-
-
         //Buat Object Client Retrofit
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_BASE_URL)
@@ -146,25 +140,41 @@ public class ProfileditActivity extends AppCompatActivity {
 
         PortalClient client = retrofit.create(PortalClient.class);
 
-        Call<EditProfileClass> call = client.getEditProfile("Bearer "+accessToken,ynama, ynim, yemail, ytelepon);
+        //SweetAlert
+        SweetAlertDialog sweetDialog = new SweetAlertDialog(ProfileditActivity.this, SweetAlertDialog.PROGRESS_TYPE);
+//        Call<EditProfileClass> call = client.getEditProfile("Bearer "+accessToken,ynama, ynim, yemail, ytelepon);
+        Call<EditProfileClass> call = client.getEditProfile("Bearer "+accessToken,ynama, yemail, ytelepon);
         call.enqueue(new Callback<EditProfileClass>() {
             @Override
             public void onResponse(Call<EditProfileClass> call, Response<EditProfileClass> response) {
                 if(response.body() != null && response.isSuccessful()) {
-//                    Toast.makeText(ProfileEditActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ProfileditActivity.this, SettingActivity.class);
-                    startActivity(intent);
-                    finish();
-
+                    new SweetAlertDialog(ProfileditActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                            .setTitleText("Berhasil")
+                            .setContentText("Edit Profile Berhasil!")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    Intent intent = new Intent(ProfileditActivity.this, SettingActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            })
+                            .show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Gagal Sini", Toast.LENGTH_SHORT).show();
+                    new SweetAlertDialog(ProfileditActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Gagal")
+                            .setContentText("Edit Profile Gagal")
+                            .show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<EditProfileClass> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
+                sweetDialog.dismiss();
+                new SweetAlertDialog(ProfileditActivity.this, SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText("Koneksi Gagal")
+                        .show();
             }
         });
 

@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity{
 
     ArrayList<String> dataSource;
     LinearLayoutManager linearLayoutManager;
-    private boolean isLoggedIn = false;
+    private String isLoggedIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +57,13 @@ public class HomeActivity extends AppCompatActivity{
                 Context.MODE_PRIVATE
         );
 
-        isLoggedIn = preferences.getBoolean("IS_LOGGED_IN",false);
+        isLoggedIn = preferences.getString("ACCESS_TOKEN",null);
 
-        if(!isLoggedIn){
+        if(isLoggedIn == null){
             Intent loginIntent = new Intent(this,LoginActivity.class);
             startActivity(loginIntent);
             finish();
+            return;
         }
 
         //Hide Action Bar
@@ -189,7 +190,7 @@ public class HomeActivity extends AppCompatActivity{
         pengusulan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PJPengusulanActivity();
+                NewPengusulunBarangFormActivity();
             }
         });
 
@@ -210,10 +211,11 @@ public class HomeActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    public void PJPengusulanActivity() {
-        Intent intent = new Intent(this, PJPengusulanActivity.class);
+    public void NewPengusulunBarangFormActivity() {
+        Intent intent = new Intent(this, NewPengusulunBarangFormActivity.class);
         startActivity(intent);
     }
+
     public void DaftarBarangActivity() {
         Intent intent = new Intent(this, DaftarBarangActivity.class);
         startActivity(intent);

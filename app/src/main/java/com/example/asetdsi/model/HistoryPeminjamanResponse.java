@@ -5,24 +5,24 @@ import com.google.gson.annotations.SerializedName;
 
 public class HistoryPeminjamanResponse{
 
-    @SerializedName("data")
-    private List<HistoryPeminjamanItem> historyPeminjamanItem;
+	@SerializedName("data")
+	private List<HistoryPeminjamanItem> historyPeminjamanItem;
 
-    @SerializedName("success")
-    private boolean success;
+	@SerializedName("success")
+	private boolean success;
 
-    @SerializedName("message")
-    private String message;
+	@SerializedName("message")
+	private String message;
 
-    public List<HistoryPeminjamanItem> getData(){
-        return historyPeminjamanItem;
-    }
+	public List<HistoryPeminjamanItem> getData(){
+		return historyPeminjamanItem;
+	}
 
-    public boolean isSuccess(){
-        return success;
-    }
+	public boolean isSuccess(){
+		return success;
+	}
 
-    public String getMessage(){
-        return message;
-    }
+	public String getMessage(){
+		return message;
+	}
 }

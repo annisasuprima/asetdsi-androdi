@@ -86,7 +86,7 @@
                 android:layout_height="32dp"
                 android:layout_marginStart="20dp"
                 android:gravity="center_vertical"
-                android:text="Jumlah"
+                android:text="Stock"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -135,6 +135,7 @@
                         android:layout_toStartOf="@+id/btn_tambah_pnj"
                         android:layout_toEndOf="@+id/btn_kurang_pnj"
                         android:background="@color/white"
+                        android:enabled="false"
                         android:gravity="center"
                         android:text="1"
                         android:textColor="@color/black"

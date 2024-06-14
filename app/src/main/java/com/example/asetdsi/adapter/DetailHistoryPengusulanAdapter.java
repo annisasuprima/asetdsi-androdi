@@ -12,6 +12,7 @@ import com.example.asetdsi.R;
 import com.example.asetdsi.model.DetailHistoryPengusulan;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DetailHistoryPengusulanAdapter extends RecyclerView.Adapter<DetailHistoryPengusulanAdapter.DetailHistoryPengusulanViewHolder> {
 
@@ -26,6 +27,8 @@ public class DetailHistoryPengusulanAdapter extends RecyclerView.Adapter<DetailH
         TextView jumlah_barang_detail_peng;
         TextView harga_barang_detail_peng;
         TextView sumber_toko_peng;
+        TextView status_detail_hpengusulan;
+        TextView status_detail_hpengusulan_fakultas;
 
 
         public DetailHistoryPengusulanViewHolder(@NonNull View itemView) {
@@ -35,6 +38,8 @@ public class DetailHistoryPengusulanAdapter extends RecyclerView.Adapter<DetailH
             jumlah_barang_detail_peng=itemView.findViewById(R.id.jumlah_barang_detail_peng);
             harga_barang_detail_peng=itemView.findViewById(R.id.harga_barang_detail_peng);
             sumber_toko_peng=itemView.findViewById(R.id.sumber_toko_peng);
+            status_detail_hpengusulan=itemView.findViewById(R.id.status_detail_hpengusulan);
+            status_detail_hpengusulan_fakultas=itemView.findViewById(R.id.status_detail_hpengusulan_fakultas);
 
         }
     }
@@ -61,6 +66,26 @@ public class DetailHistoryPengusulanAdapter extends RecyclerView.Adapter<DetailH
         holder.jumlah_barang_detail_peng.setText(Integer.toString(detailHistoryPengusulan.jumlah_barang_detail_peng));
         holder.harga_barang_detail_peng.setText(Integer.toString(detailHistoryPengusulan.harga_barang_detail_peng));
         holder.sumber_toko_peng.setText(detailHistoryPengusulan.sumber_toko_peng);
+
+        holder.status_detail_hpengusulan.setText(detailHistoryPengusulan.status_detail_hpengusulan);
+        if(Objects.equals(detailHistoryPengusulan.status_detail_hpengusulan,"accepted")){
+            holder.status_detail_hpengusulan.setBackgroundResource(R.drawable.badge_ijau);
+        }else if(Objects.equals(detailHistoryPengusulan.status_detail_hpengusulan,"rejected")){
+            holder.status_detail_hpengusulan.setBackgroundResource(R.drawable.badge_merah);
+        }else
+        {
+            holder.status_detail_hpengusulan.setBackgroundResource(R.drawable.badge);
+        }
+
+        holder.status_detail_hpengusulan_fakultas.setText(detailHistoryPengusulan.status_detail_hpengusulan_fakultas);
+        if(Objects.equals(detailHistoryPengusulan.status_detail_hpengusulan_fakultas,"accepted")){
+            holder.status_detail_hpengusulan_fakultas.setBackgroundResource(R.drawable.badge_ijau);
+        }else if(Objects.equals(detailHistoryPengusulan.status_detail_hpengusulan_fakultas,"rejected")){
+            holder.status_detail_hpengusulan_fakultas.setBackgroundResource(R.drawable.badge_merah);
+        }else
+        {
+            holder.status_detail_hpengusulan_fakultas.setBackgroundResource(R.drawable.badge);
+        }
     }
 
     @Override

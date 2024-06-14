@@ -30,6 +30,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -92,7 +93,7 @@ public class Detail_Form_Pengusulan_Barang_Activity extends AppCompatActivity{
         String keterangan = keterangan_detail_pengusulanbrg.getText().toString();
 
 
-        Integer id = Integer.valueOf(preferences.getString("id",""));
+//        Integer id = Integer.valueOf(preferences.getString("id",""));
 //        Log.d("y43", String.valueOf(id));
 
 
@@ -114,27 +115,31 @@ public class Detail_Form_Pengusulan_Barang_Activity extends AppCompatActivity{
 
         PortalClient client = retrofit.create(PortalClient.class);
 
-        Call<PengusulanBarangResponse> call = client.getPengusulanbarang("Bearer "+accessToken,id,keterangan,listData);
+        //SweetAlert
+        SweetAlertDialog sweetDialog = new SweetAlertDialog(Detail_Form_Pengusulan_Barang_Activity.this, SweetAlertDialog.PROGRESS_TYPE);
+        Call<PengusulanBarangResponse> call = client.getPengusulanbarang("Bearer "+accessToken,keterangan,listData);
         call.enqueue(new Callback<PengusulanBarangResponse>() {
             @Override
             public void onResponse(Call<PengusulanBarangResponse> call, Response<PengusulanBarangResponse> response) {
 
-//                try {
-//                    if(response.body()!=null)
-//                        Toast.makeText(Detail_Form_Pengusulan_Barang_Activity.this,"Berhasil", Toast.LENGTH_LONG).show();
-//                    if(response.errorBody()!=null)
-//                        Toast.makeText(Detail_Form_Pengusulan_Barang_Activity.this," response message "+response.errorBody().string(),Toast.LENGTH_LONG).show();
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-
                 if(response.body() != null && response.isSuccessful()) {
-//                    Toast.makeText(Detail_Form_Pengusulan_Barang_Activity.this, response.body().getProposalDescription(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Detail_Form_Pengusulan_Barang_Activity.this, OngoingActivity.class);
-                    startActivity(intent);
-                    finish();
+                    new SweetAlertDialog(Detail_Form_Pengusulan_Barang_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
+                            .setTitleText("Berhasil")
+                            .setContentText("Pengusulan Barang Berhasil!")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    Intent intent = new Intent(Detail_Form_Pengusulan_Barang_Activity.this, OngoingActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            })
+                            .show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Gagal Sini", Toast.LENGTH_SHORT).show();
+                    new SweetAlertDialog(Detail_Form_Pengusulan_Barang_Activity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Gagal")
+                            .setContentText("Pengusulan Barang Gagal")
+                            .show();
                 }
 
 
@@ -142,11 +147,23 @@ public class Detail_Form_Pengusulan_Barang_Activity extends AppCompatActivity{
 
             @Override
             public void onFailure(Call<PengusulanBarangResponse> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
+                sweetDialog.dismiss();
+                new SweetAlertDialog(Detail_Form_Pengusulan_Barang_Activity.this, SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText("Koneksi Gagal")
+                        .show();
             }
         });
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

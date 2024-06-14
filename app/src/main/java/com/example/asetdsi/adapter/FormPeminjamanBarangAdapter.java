@@ -3,6 +3,7 @@ package com.example.asetdsi.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import com.example.asetdsi.R;
 import com.example.asetdsi.model.FormPeminjamanBarang;
 import com.example.asetdsi.model.Peminjaman;
 import com.example.asetdsi.model.Pj;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -28,12 +30,14 @@ public class FormPeminjamanBarangAdapter extends RecyclerView.Adapter<FormPeminj
         TextView nama_form_peminjaman_barang;
         TextView merk_form_peminjaman_barang;
         TextView jumlah_form_peminjaman_barang;
+        ImageView gambar_form_peminjaman_brg;
 
         public FormPeminjamanBarangViewHolder(@NonNull View itemView) {
             super(itemView);
             nama_form_peminjaman_barang = itemView.findViewById(R.id.nama_form_peminjaman_brg);
             merk_form_peminjaman_barang = itemView.findViewById(R.id.merk_form_peminjaman_brg);
             jumlah_form_peminjaman_barang = itemView.findViewById(R.id.jumlah_form_peminjaman_brg);
+            gambar_form_peminjaman_brg = (ImageView) itemView.findViewById(R.id.gambar_form_peminjaman_brg);
 //            pjCv = itemView.findViewById(R.id.pjCv);pjCv
             itemView.setOnClickListener(this);
 
@@ -82,8 +86,10 @@ public class FormPeminjamanBarangAdapter extends RecyclerView.Adapter<FormPeminj
         Peminjaman peminjaman = listData.get(position);
        holder.nama_form_peminjaman_barang.setText(peminjaman.namabrg_pnj);
        holder.merk_form_peminjaman_barang.setText(peminjaman.merkbrg_pnj);
-       holder.jumlah_form_peminjaman_barang.setText(Integer.toString(peminjaman.jumlahbrg_pnj));
-
+       holder.jumlah_form_peminjaman_barang.setText(Integer.toString(peminjaman.value_jumlah));
+        String file_name = peminjaman.gambarbrg_pnj;
+        String url = file_name;
+        Picasso.get().load(url).into(holder.gambar_form_peminjaman_brg);
 
     }
 

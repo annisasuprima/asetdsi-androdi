@@ -4,6 +4,12 @@
     package="com.example.asetdsi">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <meta-data
+        android:name="com.google.firebase.messaging.default_notification_channel_id"
+        android:value="com.example.asetdsi.CH01" />
 
     <application
         android:allowBackup="true"
@@ -11,23 +17,29 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AsetDSI"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31"
-        android:requestLegacyExternalStorage="true">
+        tools:targetApi="31">
+        <activity
+            android:name=".Detail_Form_Pengusulan_Maintenence_Activity"
+            android:exported="false" />
 
         <service
             android:name=".services.PushNotificationService"
             android:enabled="true"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
+        <activity
+            android:name=".NewPengusulunBarangFormActivity"
+            android:exported="true"
+            android:label="@string/title_activity_new_form_pengusulan"/>
         <activity
             android:name=".CobaActivity"
             android:exported="false" />
@@ -48,16 +60,20 @@
             android:exported="false" />
         <activity
             android:name=".DetailOngoingPengusulanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_detail_ongoing_pengusulan"/>
         <activity
             android:name=".DetailHistoryPengusulanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_detail_history_pengusulan"/>
         <activity
             android:name=".DetaillOngoingPeminjamanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_detail_ongoing"/>
         <activity
             android:name=".DetailHistoryPeminjamanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_detail_history"/>
         <activity
             android:name=".PengusulanActivity"
             android:exported="true" />
@@ -82,7 +98,8 @@
             android:label="@string/title_activity_form_pengusulan_barang" />
         <activity
             android:name=".FormPeminjamanBangunanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_detail_peminjaman_bangunan"/>
         <activity
             android:name=".FormPeminjamanBarangActivity"
             android:exported="false"

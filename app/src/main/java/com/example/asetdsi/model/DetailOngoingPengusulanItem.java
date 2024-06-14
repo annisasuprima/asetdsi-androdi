@@ -31,8 +31,11 @@ public class DetailOngoingPengusulanItem{
     @SerializedName("unit_price")
     private int unitPrice;
 
-    @SerializedName("statuspr")
+    @SerializedName("status_pr")
     private String statuspr;
+
+    @SerializedName("status_confirm_faculty")
+    private String statusconfirmfaculty;
 
     @SerializedName("source_shop")
     private String sourceShop;
@@ -75,6 +78,9 @@ public class DetailOngoingPengusulanItem{
 
     public String getStatuspr(){
         return statuspr;
+    }
+    public String getStatusconfirmfaculty(){
+        return statusconfirmfaculty;
     }
 
     public String getSourceShop(){

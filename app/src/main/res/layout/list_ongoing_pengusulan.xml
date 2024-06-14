@@ -70,21 +70,79 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_gravity="bottom"
                     >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:layout_gravity="bottom"
+                        android:gravity="start"
+                        android:layout_marginBottom="10dp"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Departemen"
+                            android:textSize="12sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+
+                            android:textColor="@color/black"
+                            />
+
                     <TextView
                         android:id="@+id/status_ongoing_pengusulan"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:layout_gravity="end"
                         android:background="@drawable/badge"
                         android:padding="5dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:textColor="@color/white"
                         android:text="waiting" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:gravity="end"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fakultas"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="@color/black"
+                            />
+
+                        <TextView
+                            android:id="@+id/status_ongoing_pengusulan_fakultas"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:background="@drawable/badge"
+                            android:padding="5dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/white"
+                            android:text="waiting" />
+
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

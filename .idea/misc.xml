@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable/arrow_down.xml" value="0.107" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable/atas.xml" value="0.2015" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable/badge.xml" value="0.2235" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable/badge_ijau.xml" value="0.205" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable/badge_merah.xml" value="0.205" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable/bangunan.xml" value="0.1745" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable/barang.xml" value="0.1745" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/drawable/bg_penambahan.xml" value="0.2555" />
@@ -51,7 +54,8 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_coba.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_daftar_barang.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_detail_form_pengusulan_barang.xml" value="0.25" />
-        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_detail_history_peminjaman.xml" value="0.1" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_detail_form_pengusulan_maintenence.xml" value="0.25" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_detail_history_peminjaman.xml" value="0.2" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_detail_history_pengusulan.xml" value="0.2" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_detail_history_pengusulan_maintenence.xml" value="0.2" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_detail_ongoing_pengusulan.xml" value="0.25" />
@@ -69,6 +73,8 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_main2.xml" value="0.25" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_new_form_pengusulan_barang.xml" value="0.25" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_new_pengusulun_barang_form.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_ongoing.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_ongoing_pengusulan.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/activity_peminjaman.xml" value="0.16799999999999998" />
@@ -87,6 +93,7 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/fragment_first.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/fragment_history_peminjaman.xml" value="0.2359375" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/fragment_history_pengusulan.xml" value="0.25" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/fragment_new_pengusulan_maintenence.xml" value="0.24922118380062305" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/fragment_ongoing_peminjaman.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/fragment_ongoing_pengusulan.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/fragment_pengusulan_barang.xml" value="0.4" />
@@ -94,7 +101,8 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/home_gajadi.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/item_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/item_layout.xml" value="0.25" />
-        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_bangunan.xml" value="0.4" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_array_mt.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_bangunan.xml" value="0.3620689655172414" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_barang.xml" value="0.264" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_barang_maintenence.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_brg.xml" value="0.536" />
@@ -105,6 +113,7 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_detail_ongoing_pengusulan.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_detail_ongoing_pengusulan_maintenence.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_detail_pengusulan_barang.xml" value="0.5598006644518272" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_detail_pengusulan_maintenence.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_form_peminjaman.xml" value="0.2" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_form_peminjaman_bangunan.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_form_pengusulan.xml" value="0.184375" />
@@ -118,13 +127,15 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_peminjaman_bangunan.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_photo_detail_maintenence.xml" value="0.264" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_photo_detail_ongoing_maintenence.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_photo_mt.xml" value="0.536" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_pj.xml" value="0.264" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_pj_pengusulan.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/list_rv_array_photomt.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/login.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/login_activity.xml" value="0.2359375" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/row_add_barang.xml" value="0.25" />
-        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/row_add_barang_mt.xml" value="0.4" />
-        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/toolbar_title_layout.xml" value="0.1" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/row_add_barang_mt.xml" value="0.2" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/layout/toolbar_title_layout.xml" value="0.264" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/AsetDSI/app/src/main/res/menu/items.xml" value="0.6015037593984962" />

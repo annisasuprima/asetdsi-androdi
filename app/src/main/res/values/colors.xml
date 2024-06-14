@@ -13,5 +13,7 @@
     <color name="red">#e61919</color>
     <color name="abu">#f6faf5</color>
     <color name="emas">#D4AF37</color>
+    <color name="merah">#dc3545</color>
+    <color name="success">#198754</color>
 
 </resources>

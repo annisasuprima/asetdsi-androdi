@@ -11,25 +11,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.asetdsi.DaftarBarangActivity;
 import com.example.asetdsi.DetailHistoryPeminjamanActivity;
 import com.example.asetdsi.R;
 import com.example.asetdsi.Retrofit.PortalClient;
 import com.example.asetdsi.adapter.HistoryPeminjamanAdapter;
-import com.example.asetdsi.adapter.PJAdapter;
-import com.example.asetdsi.model.DetailHistoryPeminjaman;
 import com.example.asetdsi.model.HistoryPeminjaman;
 import com.example.asetdsi.model.HistoryPeminjamanItem;
 import com.example.asetdsi.model.HistoryPeminjamanResponse;
-import com.example.asetdsi.model.ListPeminjamanBarangItem;
-import com.example.asetdsi.model.ListPeminjamanBarangResponse;
-import com.example.asetdsi.model.Peminjaman;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,12 +93,12 @@ public class HistoryPeminjamanFragment extends Fragment implements HistoryPeminj
                         HistoryPeminjaman historyPeminjaman = new HistoryPeminjaman(
                                 historyPeminjamanItem.getDeskripsi(),
                                 historyPeminjamanItem.getWaktu(),
+                                historyPeminjamanItem.getWaktuAkhir(),
                                 historyPeminjamanItem.getTanggal(),
+                                historyPeminjamanItem.getAlasan(),
                                 historyPeminjamanItem.getStatus(),
                                 historyPeminjamanItem.getTypeId(),
                                 historyPeminjamanItem.getId()
-
-
                         );
                         listHistoryPeminjaman.add(historyPeminjaman);
                     }
@@ -140,9 +133,11 @@ public class HistoryPeminjamanFragment extends Fragment implements HistoryPeminj
         HistorypeminjamanIntent.putExtra("keterangan_history",historyPeminjaman.keterangan_history);
         HistorypeminjamanIntent.putExtra("tanggal_history",historyPeminjaman.tanggal_history);
         HistorypeminjamanIntent.putExtra("jam_history",historyPeminjaman.jam_history);
+        HistorypeminjamanIntent.putExtra("jam_history_end",historyPeminjaman.jam_history_end);
         HistorypeminjamanIntent.putExtra("status_history",historyPeminjaman.status_history);
+        HistorypeminjamanIntent.putExtra("alasan",historyPeminjaman.alasan);
 //        HistorypeminjamanIntent.putExtra("nama_pj",pj.nama_pj);
         startActivity(HistorypeminjamanIntent);
-        Toast.makeText(getActivity(),"yay uncul",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(),"yay uncul",Toast.LENGTH_SHORT).show();
     }
 }

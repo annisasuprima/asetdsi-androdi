@@ -12,6 +12,7 @@ import com.example.asetdsi.R;
 import com.example.asetdsi.model.DetailHistoryPeminjaman;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DetailHistoryPeminjamanAdapter extends RecyclerView.Adapter<DetailHistoryPeminjamanAdapter.DetailHistoryPeminjamanViewHolder> {
 
@@ -23,12 +24,14 @@ public class DetailHistoryPeminjamanAdapter extends RecyclerView.Adapter<DetailH
         TextView nama_barang_detail_hp;
         TextView merk_barang_detail_hp;
         TextView jumlah_barang_detail_hp;
+        TextView status_detail_history_peminjaman;
 
         public DetailHistoryPeminjamanViewHolder(@NonNull View itemView) {
             super(itemView);
             nama_barang_detail_hp = itemView.findViewById(R.id.nama_barang_detail_hp);
             merk_barang_detail_hp = itemView.findViewById(R.id.merk_barang_detail_hp);
             jumlah_barang_detail_hp=itemView.findViewById(R.id.jumlah_barang_detail_hp);
+            status_detail_history_peminjaman=itemView.findViewById(R.id.status_detail_history_peminjaman);
 
         }
     }
@@ -51,7 +54,13 @@ public class DetailHistoryPeminjamanAdapter extends RecyclerView.Adapter<DetailH
         holder.nama_barang_detail_hp.setText(detailHistoryPeminjaman.nama_barang_detail_hp);
         holder.merk_barang_detail_hp.setText(detailHistoryPeminjaman.merk_barang_detail_hp);
         holder.jumlah_barang_detail_hp.setText(Integer.toString(detailHistoryPeminjaman.jumlah_barang_detail_hp));
-
+        holder.status_detail_history_peminjaman.setText(detailHistoryPeminjaman.status_detail_history_peminjaman);
+        if(Objects.equals(detailHistoryPeminjaman.status_detail_history_peminjaman, "accepted")){
+            holder.status_detail_history_peminjaman.setBackgroundResource(R.drawable.badge_ijau);
+        }else{
+            holder.status_detail_history_peminjaman.setBackgroundResource(R.drawable.badge_merah);
+            //            holder.status_history.setBackgroundColor(Color.parseColor("#dc3545"));
+        }
 
     }
 

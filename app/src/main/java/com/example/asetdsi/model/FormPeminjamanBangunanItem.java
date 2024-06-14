@@ -28,6 +28,9 @@ public class FormPeminjamanBangunanItem{
     @SerializedName("loan_time")
     private String loanTime;
 
+    @SerializedName("loan_time_end")
+    private String loanTimeEnd;
+
     @SerializedName("status")
     private String status;
 
@@ -64,6 +67,9 @@ public class FormPeminjamanBangunanItem{
 
     public String getLoanTime(){
         return loanTime;
+    }
+    public String getLoanTimeEnd(){
+        return loanTimeEnd;
     }
 
     public String getStatus(){

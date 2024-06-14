@@ -17,16 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.asetdsi.DaftarBarangActivity;
 import com.example.asetdsi.DetailHistoryPengusulanActivity;
 import com.example.asetdsi.DetailHistoryPengusulanMaintenenceActivity;
 import com.example.asetdsi.R;
 import com.example.asetdsi.Retrofit.PortalClient;
-import com.example.asetdsi.adapter.HistoryPeminjamanAdapter;
 import com.example.asetdsi.adapter.HistoryPengusulanAdapter;
-import com.example.asetdsi.model.HistoryPeminjaman;
-import com.example.asetdsi.model.HistoryPeminjamanItem;
-import com.example.asetdsi.model.HistoryPeminjamanResponse;
 import com.example.asetdsi.model.HistoryPengusulan;
 import com.example.asetdsi.model.HistoryPengusulanItem;
 import com.example.asetdsi.model.HistoryPengusulanResponse;
@@ -102,10 +97,10 @@ public class HistoryPengusulanFragment extends Fragment implements HistoryPengus
                         HistoryPengusulan historyPengusulan = new HistoryPengusulan(
                                 historyPengusulanItem.getDeskripsi(),
                                 historyPengusulanItem.getStatuspr(),
+                                historyPengusulanItem.getStatusconfirmfaculty(),
+                                historyPengusulanItem.getAlasan(),
                                 historyPengusulanItem.getTypeId(),
                                 historyPengusulanItem.getId()
-
-
 
                         );
                         listHistoryPengusulan.add(historyPengusulan);
@@ -145,7 +140,9 @@ public class HistoryPengusulanFragment extends Fragment implements HistoryPengus
             Intent HistorypengusulanIntent = new Intent(getContext(), DetailHistoryPengusulanActivity.class);
                 HistorypengusulanIntent.putExtra("keterangan",historyPengusulan.keterangan_history_pengusulan);
                 HistorypengusulanIntent.putExtra("status",historyPengusulan.status_history_pengusulan);
+            HistorypengusulanIntent.putExtra("status_fk",historyPengusulan.status_history_pengusulan_fakultas);
                 HistorypengusulanIntent.putExtra("id",historyPengusulan.id);
+            HistorypengusulanIntent.putExtra("alasan",historyPengusulan.alasan_pengusulan);
                 startActivity(HistorypengusulanIntent);
 //            Toast.makeText(getActivity(),"yay uncul",Toast.LENGTH_SHORT).show();
 
@@ -154,7 +151,9 @@ public class HistoryPengusulanFragment extends Fragment implements HistoryPengus
             Intent HistorypengusulanIntent = new Intent(getContext(), DetailHistoryPengusulanMaintenenceActivity.class);
             HistorypengusulanIntent.putExtra("keterangan",historyPengusulan.keterangan_history_pengusulan);
             HistorypengusulanIntent.putExtra("status",historyPengusulan.status_history_pengusulan);
+            HistorypengusulanIntent.putExtra("status_fk",historyPengusulan.status_history_pengusulan_fakultas);
             HistorypengusulanIntent.putExtra("id",historyPengusulan.id);
+            HistorypengusulanIntent.putExtra("alasan",historyPengusulan.alasan_pengusulan);
             startActivity(HistorypengusulanIntent);
         }
 

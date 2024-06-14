@@ -18,10 +18,16 @@
     <string name="title_activity_daftar_barang">Daftar Barang</string>
     <string name="title_activity_history">History</string>
     <string name="title_activity_detail_peminjaman_barang">Detail Peminjaman</string>
+    <string name="title_activity_detail_peminjaman_bangunan">Detail Peminjaman</string>
     <string name="title_activity_pj_pengusulan">Penanggung Jawab</string>
     <string name="title_activity_form_pengusulan_barang">Form Pengusulan</string>
     <string name="title_activity_detail_pengusulan">Detail Pengusulan</string>
+    <string name="title_activity_detail_ongoing">Detail Peminjaman Ongoing</string>
+    <string name="title_activity_detail_history">Detail Peminjaman History</string>
+    <string name="title_activity_detail_ongoing_pengusulan">Detail Pengusulan Ongoing</string>
+    <string name="title_activity_detail_history_pengusulan">Detail Pengusulan  History</string>
     <string name="title_activity_form_tambah_lagi_pengusulan">Form Pengusulan</string>
+    <string name="title_activity_new_form_pengusulan">Pengusulan Barang</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_pengusulan">PengusulanActivity</string>

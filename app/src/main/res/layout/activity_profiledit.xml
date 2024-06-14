@@ -82,26 +82,26 @@
                     android:textColorHint="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:textColorHint="@color/muted"
-                app:boxBackgroundColor="@color/white"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/ijau"
-                app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/nim"
-                app:startIconTint="#1A4D2E">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:textColorHint="@color/muted"-->
+<!--                app:boxBackgroundColor="@color/white"-->
+<!--                app:boxBackgroundMode="outline"-->
+<!--                app:boxStrokeColor="@color/ijau"-->
+<!--                app:hintTextColor="@color/black"-->
+<!--                app:startIconDrawable="@drawable/nim"-->
+<!--                app:startIconTint="#1A4D2E">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_nim"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="NIM"
-                    android:textColor="@color/black" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/edit_nim"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="NIM"-->
+<!--                    android:textColor="@color/black" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

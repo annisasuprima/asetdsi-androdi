@@ -13,6 +13,9 @@ public class OngoingPeminjamanItem{
     @SerializedName("waktu")
     private String waktu;
 
+    @SerializedName("waktu_akhir")
+    private String waktuAkhir;
+
     @SerializedName("tanggal")
     private String tanggal;
 
@@ -38,6 +41,10 @@ public class OngoingPeminjamanItem{
 
     public String getWaktu(){
         return waktu;
+    }
+
+    public String getWaktuAkhir(){
+        return waktuAkhir;
     }
 
     public String getTanggal(){

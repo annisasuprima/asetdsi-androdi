@@ -54,5 +54,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-messaging'
 
+    //SweetAlert
+    implementation 'com.github.f0ris.sweetalert:library:1.5.6'
 
 }

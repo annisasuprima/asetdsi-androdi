@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -78,24 +79,40 @@ public class RegisterActivity extends AppCompatActivity {
 
         PortalClient client = retrofit.create(PortalClient.class);
 
+        //SweetAlert
+        SweetAlertDialog sweetDialog = new SweetAlertDialog(RegisterActivity.this, SweetAlertDialog.PROGRESS_TYPE);
         Call<RegisterClass> call = client.registerResponse(nim, name, email, username, password);
         call.enqueue(new Callback<RegisterClass>() {
             @Override
             public void onResponse(Call<RegisterClass> call, Response<RegisterClass> response) {
                 if(response.body() != null && response.isSuccessful()) {
-                    Toast.makeText(RegisterActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
+                    new SweetAlertDialog(RegisterActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                            .setTitleText("Berhasil!")
+                            .setContentText("Register Berhasil")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            })
+                            .show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Gagal Sini", Toast.LENGTH_SHORT).show();
+                    new SweetAlertDialog(RegisterActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Gagal")
+                            .setContentText("Register Gagal")
+                            .show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<RegisterClass> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
+                sweetDialog.dismiss();
+                new SweetAlertDialog(RegisterActivity.this, SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText("Koneksi Gagal")
+                        .show();
             }
         });
 

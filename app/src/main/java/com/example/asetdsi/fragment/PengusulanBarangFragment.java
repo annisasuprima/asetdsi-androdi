@@ -137,23 +137,6 @@ public class PengusulanBarangFragment extends Fragment implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-//        switch (v.getId()){
-//            case R.id.BtnTambahBarang:
-//                addView();
-//                break;
-//            case R.id.BtnTambahDoneBrg:
-//
-//                if(checkIfValidAndRead()){
-//                    Intent intent = new Intent(getContext(),Detail_Form_Pengusulan_Barang_Activity.class);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putSerializable("list",pengusulanBarangItem);
-//                    intent.putExtras(bundle);
-//                    startActivity(intent);
-//
-//
-//                }
-//                break;
-//        }
         addView();
     }
 

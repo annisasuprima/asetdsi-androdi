@@ -149,7 +149,7 @@ public class PJPengusulanActivity extends AppCompatActivity implements PJPengusu
 
         Intent pengusulanIntent2 = new Intent(this,Detail_Form_Pengusulan_Barang_Activity.class);
         pengusulanIntent2.putExtra("id",pjPengusulan.id);
-        Toast.makeText(this,"yay uncul",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this,"yay uncul",Toast.LENGTH_SHORT).show();
 
     }
 }

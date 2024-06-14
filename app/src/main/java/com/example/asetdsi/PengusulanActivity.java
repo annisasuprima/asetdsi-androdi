@@ -13,6 +13,7 @@ import android.os.Handler;
 import com.example.asetdsi.adapter.TabAdapter;
 import com.example.asetdsi.fragment.BangunanFragment;
 import com.example.asetdsi.fragment.BarangFragment;
+import com.example.asetdsi.fragment.NewPengusulanMaintenenceFragment;
 import com.example.asetdsi.fragment.PengusulanBarangFragment;
 import com.example.asetdsi.fragment.PengusulanMaintenenceFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -53,7 +54,7 @@ public class PengusulanActivity extends AppCompatActivity {
             @Override
             public void run() {
                 tabAdapter.addFragment(PengusulanBarangFragment.getInstance(),"Barang");
-                tabAdapter.addFragment(PengusulanMaintenenceFragment.getInstance(),"Maintenence");
+                tabAdapter.addFragment(NewPengusulanMaintenenceFragment.getInstance(),"Maintenence");
                 viewPager.setAdapter(tabAdapter);
                 tabLayout.setupWithViewPager(viewPager);
 

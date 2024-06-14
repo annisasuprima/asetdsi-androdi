@@ -25,7 +25,8 @@ public class DetailOngoingPengusulanAdapter extends RecyclerView.Adapter<DetailO
         TextView jumlah_barang_detail_openg;
         TextView harga_barang_detail_openg;
         TextView sumber_toko_openg;
-
+        TextView status_detail_opengusulan;
+        TextView status_detail_opengusulan_fakultas;
 
         public DetailOngoingPengusulanViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -34,6 +35,8 @@ public class DetailOngoingPengusulanAdapter extends RecyclerView.Adapter<DetailO
             jumlah_barang_detail_openg=itemView.findViewById(R.id.jumlah_barang_detail_openg);
             harga_barang_detail_openg=itemView.findViewById(R.id.harga_barang_detail_openg);
             sumber_toko_openg=itemView.findViewById(R.id.sumber_toko_openg);
+//            status_detail_opengusulan = itemView.findViewById(R.id.status_detail_opengusulan);
+//            status_detail_opengusulan_fakultas= itemView.findViewById(R.id.status_detail_opengusulan_fakultas);
 
         }
     }
@@ -59,6 +62,8 @@ public class DetailOngoingPengusulanAdapter extends RecyclerView.Adapter<DetailO
         holder.jumlah_barang_detail_openg.setText(Integer.toString(detailOngoingPengusulan.jumlah_barang_detail_openg));
         holder.harga_barang_detail_openg.setText(Integer.toString(detailOngoingPengusulan.harga_barang_detail_openg));
         holder.sumber_toko_openg.setText(detailOngoingPengusulan.sumber_toko_openg);
+//        holder.status_detail_opengusulan.setText(detailOngoingPengusulan.status_detail_opengusulan);
+//        holder.status_detail_opengusulan_fakultas.setText(detailOngoingPengusulan.status_detail_opengusulan_fakultas);
     }
 
     @Override

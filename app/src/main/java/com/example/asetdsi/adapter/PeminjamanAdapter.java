@@ -1,23 +1,20 @@
 package com.example.asetdsi.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.asetdsi.FormPeminjamanBarangActivity;
 import com.example.asetdsi.R;
 import com.example.asetdsi.model.Peminjaman;
 import com.squareup.picasso.Picasso;
@@ -26,17 +23,21 @@ import java.util.ArrayList;
 
 public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.PeminjamanViewHolder> {
 
-    int count = 0;
+    int count = 1;
     Context context;
     ArrayList<Peminjaman> listData = new ArrayList<Peminjaman>();
     public ArrayList<Peminjaman> checkedlistData = new ArrayList<Peminjaman>();
-
+    RecyclerView rvPNJ;
     public PeminjamanAdapter(Context context) {
         this.context = context;
     }
 
 
-
+//
+//    listData.filter((item) => {
+//        return item.isChecked;
+//
+//    })
 
 //    interface OnItemCheckListener {
 //        void onItemCheck(Peminjaman item);
@@ -64,18 +65,18 @@ public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.Pe
 
 //    public class PeminjamanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public static class PeminjamanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class PeminjamanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView namabrg_pnj;
         TextView merkbrg_pnj;
         TextView jumlahbrg_pnj;
         ImageView gambarbrg_pnj;
-        TextView value_jumlah;
+        EditText value_jumlah;
         ImageButton btn_tambah_pnj;
         ImageButton btn_kurang_pnj;
         CheckBox checkBox;
         PeminjamanClickListener peminjamanClickListener;
 
-//        ItemClickListener itemClickListener;
+        //        ItemClickListener itemClickListener;
         public PeminjamanViewHolder(@NonNull View itemView) {
             super(itemView);
             namabrg_pnj = itemView.findViewById(R.id.namabrg_pnj);
@@ -86,7 +87,6 @@ public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.Pe
             btn_tambah_pnj = (ImageButton)itemView.findViewById(R.id.btn_tambah_pnj);
             btn_kurang_pnj = (ImageButton)itemView.findViewById(R.id.btn_kurang_pnj);
             checkBox = (CheckBox)itemView.findViewById(R.id.checkBox);
-
 
             checkBox.setOnClickListener(this);
 
@@ -99,11 +99,11 @@ public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.Pe
         {
             this.peminjamanClickListener=ic;
         }
-            @Override
-            public void onClick(View view) {
-                this.peminjamanClickListener.onItemClick(view,getLayoutPosition());
-            }
+        @Override
+        public void onClick(View view) {
+            this.peminjamanClickListener.onItemClick(view,getLayoutPosition());
         }
+    }
     public void setListData(ArrayList<Peminjaman> listData) {
         this.listData = listData;
         notifyDataSetChanged();
@@ -119,7 +119,7 @@ public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.Pe
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PeminjamanViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PeminjamanViewHolder holder, @SuppressLint("RecyclerView") int position) {
 //        final  int pos = position;
 //        Peminjaman peminjaman = listData.get(position);
 //        String file_name = peminjaman.gambarbrg_pnj;
@@ -142,60 +142,84 @@ public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.Pe
 
 //        total = peminjaman.jumlahbrg_pnj;
 
+
+//        holder.btn_tambah_pnj.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(count >= peminjaman1.jumlahbrg_pnj){
+//                    return;
+//                }
+//                count++;
+//                holder.value_jumlah.setText("" + count);
+//            }
+//
+//        });
+//
+//        holder.btn_kurang_pnj.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    if (count <= peminjaman1.jumlahbrg_pnj) {
+//                        if(count<=1){
+//                            count=1;
+//                        }
+//                        else {count--;}
+//                        holder.value_jumlah.setText(""+count);
+//                    }
+//
+//                }
+//            });
+
         holder.btn_tambah_pnj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int count = Integer.parseInt(String.valueOf(holder.value_jumlah.getText()));
                 if(count >= peminjaman1.jumlahbrg_pnj){
                     return;
+                }else {
+                    count++;
+                    holder.value_jumlah.setText("" + count);
                 }
-                count++;
-                holder.value_jumlah.setText("" + count);
+                EditText et_value = holder.value_jumlah;
+                String value = et_value.getText().toString();
+                listData.get(position).setValue_jumlah(Integer.valueOf(value));
             }
-
         });
 
         holder.btn_kurang_pnj.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (count <= peminjaman1.jumlahbrg_pnj) {
-                        if(count<=1){
-                            count=1;
-                        }
-                        else {count--;}
-                        holder.value_jumlah.setText(""+count);
-                    }
+            @Override
+            public void onClick(View view) {
+                int count= Integer.parseInt(String.valueOf(holder.value_jumlah.getText()));
 
+                if (count <= peminjaman1.jumlahbrg_pnj) {
+                    if(count<=1){
+                        count=1;
+                    }
+                    else {count--;}
+                    holder.value_jumlah.setText(""+count);
                 }
-            });
+
+                EditText et_value = holder.value_jumlah;
+                String value = et_value.getText().toString();
+                listData.get(position).setValue_jumlah(Integer.valueOf(value));
+            }
+        });
 
         holder.setItemClickListener(new PeminjamanClickListener() {
             @Override
             public void onItemClick(View v, int pos) {
-
                 CheckBox checkBox = (CheckBox) v;
-                if (checkBox.isChecked()) {
-                    checkedlistData.add(listData.get(pos));
 
+                if (checkBox.isChecked()) {
+                    EditText et_value = holder.value_jumlah;
+                    String value = et_value.getText().toString();
+                    listData.get(pos).setValue_jumlah(Integer.valueOf(value));
+                    checkedlistData.add(listData.get(pos));
                 } else if (!checkBox.isChecked()) {
                     checkedlistData.remove(listData.get(pos));
                 }
-
-//                if (checkBox.isChecked()) {
-//                    checkedlistData.add(peminjaman1);
-//
-//                } else if (!checkBox.isChecked()) {
-//                    checkedlistData.remove(peminjaman1);
-//                }
-
-
             }
-
-
         });
-
-
     }
-
 
     @Override
     public int getItemCount() {

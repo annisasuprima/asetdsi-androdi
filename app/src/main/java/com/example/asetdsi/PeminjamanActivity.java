@@ -72,7 +72,7 @@ public class PeminjamanActivity extends AppCompatActivity {
             @Override
             public void run() {
                 tabAdapter.addFragment(BarangFragment.getInstance(),"Barang");
-                tabAdapter.addFragment(BangunanFragment.getInstance(),"Bangunan");
+                tabAdapter.addFragment(BangunanFragment.getInstance(),"Ruangan");
                 viewPager.setAdapter(tabAdapter);
                 tabLayout.setupWithViewPager(viewPager);
 

@@ -4,9 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class OngoingPengusulanItem{
 
-    @SerializedName("nama_mahasiswa")
-    private String namaMahasiswa;
-
     @SerializedName("type_id")
     private int typeId;
 
@@ -16,15 +13,11 @@ public class OngoingPengusulanItem{
     @SerializedName("id")
     private int id;
 
-    @SerializedName("mahasiswa_id")
-    private int mahasiswaId;
-
     @SerializedName("statuspr")
     private String statuspr;
 
-    public String getNamaMahasiswa(){
-        return namaMahasiswa;
-    }
+    @SerializedName("status_confirm_faculty")
+    private String statusconfirmfaculty;
 
     public int getTypeId(){
         return typeId;
@@ -38,11 +31,10 @@ public class OngoingPengusulanItem{
         return id;
     }
 
-    public int getMahasiswaId(){
-        return mahasiswaId;
-    }
-
     public String getStatuspr(){
         return statuspr;
+    }
+    public String getStatusconfirmfaculty(){
+        return statusconfirmfaculty;
     }
 }

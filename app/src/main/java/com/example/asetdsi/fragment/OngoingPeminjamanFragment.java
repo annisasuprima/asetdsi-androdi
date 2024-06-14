@@ -17,16 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.asetdsi.DaftarBarangActivity;
-import com.example.asetdsi.DetailHistoryPeminjamanActivity;
 import com.example.asetdsi.DetaillOngoingPeminjamanActivity;
 import com.example.asetdsi.R;
 import com.example.asetdsi.Retrofit.PortalClient;
-import com.example.asetdsi.adapter.HistoryPeminjamanAdapter;
 import com.example.asetdsi.adapter.OngoingPeminjamanAdapter;
-import com.example.asetdsi.model.HistoryPeminjaman;
-import com.example.asetdsi.model.HistoryPeminjamanItem;
-import com.example.asetdsi.model.HistoryPeminjamanResponse;
 import com.example.asetdsi.model.OngoingPeminjaman;
 import com.example.asetdsi.model.OngoingPeminjamanItem;
 import com.example.asetdsi.model.OngoingPeminjamanResponse;
@@ -100,11 +94,14 @@ public class OngoingPeminjamanFragment extends Fragment implements OngoingPeminj
                     for(OngoingPeminjamanItem ongoingPeminjamanItem : listOngoingPeminjamanItem){
                         OngoingPeminjaman ongoingPeminjaman = new OngoingPeminjaman(
                                 ongoingPeminjamanItem.getDeskripsi(),
-                                ongoingPeminjamanItem.getTanggal(),
                                 ongoingPeminjamanItem.getWaktu(),
+                                ongoingPeminjamanItem.getWaktuAkhir(),
+                                ongoingPeminjamanItem.getTanggal(),
                                 ongoingPeminjamanItem.getStatus(),
                                 ongoingPeminjamanItem.getTypeId(),
                                 ongoingPeminjamanItem.getId()
+
+
 
 
                         );
@@ -139,11 +136,12 @@ public class OngoingPeminjamanFragment extends Fragment implements OngoingPeminj
         OngoingpeminjamanIntent.putExtra("keterangan_history",ongoingPeminjaman.keterangan_ongoing);
         OngoingpeminjamanIntent.putExtra("tanggal_history",ongoingPeminjaman.tanggal_ongoing);
         OngoingpeminjamanIntent.putExtra("jam_history",ongoingPeminjaman.jam_ongoing);
+        OngoingpeminjamanIntent.putExtra("jam_history_end",ongoingPeminjaman.jam_ongoing_end);
         OngoingpeminjamanIntent.putExtra("status_history",ongoingPeminjaman.status_ongoing);
 //        HistorypeminjamanIntent.putExtra("nama_pj",pj.nama_pj);
         startActivity(OngoingpeminjamanIntent);
 
-        Toast.makeText(getActivity(),"yay uncul",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(),"yay uncul",Toast.LENGTH_SHORT).show();
 
     }
 }

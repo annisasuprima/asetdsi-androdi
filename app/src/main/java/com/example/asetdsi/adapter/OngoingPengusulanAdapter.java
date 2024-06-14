@@ -24,12 +24,14 @@ public class OngoingPengusulanAdapter extends RecyclerView.Adapter<OngoingPengus
     public class OngoingPengusulanViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
         TextView ket_op;
         TextView status_ongoing_pengusulan;
+        TextView status_ongoing_pengusulan_fakultas;
         ImageView logobarang_ongoing_pengusulan;
 
         public OngoingPengusulanViewHolder(@NonNull View itemView) {
             super(itemView);
             ket_op = (TextView)itemView.findViewById(R.id.ket_op);
             status_ongoing_pengusulan = itemView.findViewById(R.id.status_ongoing_pengusulan);
+            status_ongoing_pengusulan_fakultas = itemView.findViewById(R.id.status_ongoing_pengusulan_fakultas);
             logobarang_ongoing_pengusulan = (ImageView)itemView.findViewById(R.id.logobarang_ongoing_pengusulan);
 
             itemView.setOnClickListener(this);
@@ -76,15 +78,17 @@ public class OngoingPengusulanAdapter extends RecyclerView.Adapter<OngoingPengus
         OngoingPengusulan ongoingPengusulan = listData.get(position);
         holder.ket_op.setText(ongoingPengusulan.ket_op);
         holder.status_ongoing_pengusulan.setText(ongoingPengusulan.status_ongoing_pengusulan);
+        holder.status_ongoing_pengusulan_fakultas.setText(ongoingPengusulan.status_ongoing_pengusulan_fakultas);
         if(ongoingPengusulan.type_id==1) {
             Glide.with(holder.itemView.getContext())
                     .load(R.drawable.barang)
                     .into(holder.logobarang_ongoing_pengusulan);
-        }else {
-            Glide.with(holder.itemView.getContext())
-                    .load(R.drawable.maintenence)
-                    .into(holder.logobarang_ongoing_pengusulan);
         }
+//        }else {
+//            Glide.with(holder.itemView.getContext())
+//                    .load(R.drawable.maintenence)
+//                    .into(holder.logobarang_ongoing_pengusulan);
+//        }
 
 
     }

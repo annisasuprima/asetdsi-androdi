@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/form_putih"
         android:backgroundTint="@color/abu"
         tools:ignore="MissingConstraints">
@@ -29,14 +29,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBarangMaintenence"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="210dp"
             android:scrollbars="horizontal"
             tools:ignore="MissingConstraints"
             tools:listitem="@layout/list_barang_maintenence" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+<!--        <Space-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,7 +102,13 @@
                     android:layout_marginStart="20dp">
 
                 </Button>
+
             </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rVlistPhotoMt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/list_photo_mt"/>
         </LinearLayout>
     </LinearLayout>
 

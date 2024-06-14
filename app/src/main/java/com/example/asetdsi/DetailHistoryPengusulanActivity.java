@@ -28,6 +28,7 @@ import com.example.asetdsi.model.DetailHistoryPengusulanResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,6 +41,8 @@ ActionBar actionBar;
     RecyclerView rvDetailHPeng;
     TextView keterangan_detail_history_pengusulan;
     TextView status_detail_history_pengusulan;
+    TextView status_detail_history_pengusulan_fakultas;
+    TextView alasan_detail_history_pengusulan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +63,28 @@ ActionBar actionBar;
         String status = HistorypengusulanIntent.getStringExtra("status");
         status_detail_history_pengusulan = findViewById(R.id.status_detail_history_pengusulan);
         status_detail_history_pengusulan.setText(status);
+        if(Objects.equals(status_detail_history_pengusulan.getText(), "accepted")){
+            status_detail_history_pengusulan.setBackgroundResource(R.drawable.badge_ijau);
+        }else if(Objects.equals(status_detail_history_pengusulan.getText(), "rejected")){
+            status_detail_history_pengusulan.setBackgroundResource(R.drawable.badge_merah);
+        }else{
+            status_detail_history_pengusulan.setBackgroundResource(R.drawable.badge);
+        }
 
+        String statusfk = HistorypengusulanIntent.getStringExtra("status_fk");
+        status_detail_history_pengusulan_fakultas = findViewById(R.id.status_detail_history_pengusulan_fakultas);
+        status_detail_history_pengusulan_fakultas.setText(statusfk);
+        if(Objects.equals(status_detail_history_pengusulan_fakultas.getText(), "accepted")){
+            status_detail_history_pengusulan_fakultas.setBackgroundResource(R.drawable.badge_ijau);
+        }else if(Objects.equals(status_detail_history_pengusulan_fakultas.getText(), "rejected")){
+            status_detail_history_pengusulan_fakultas.setBackgroundResource(R.drawable.badge_merah);
+        }else{
+            status_detail_history_pengusulan_fakultas.setBackgroundResource(R.drawable.badge);
+        }
+
+        String alasan = HistorypengusulanIntent.getStringExtra("alasan");
+        alasan_detail_history_pengusulan = findViewById(R.id.alasan_detail_history_pengusulan);
+        alasan_detail_history_pengusulan.setText(alasan);
 
         actionBar = getSupportActionBar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -104,7 +128,9 @@ ActionBar actionBar;
                                 detailHistoryPengusulanItem.getSpesificationDetail(),
                                 detailHistoryPengusulanItem.getAmount(),
                                 detailHistoryPengusulanItem.getUnitPrice(),
-                                detailHistoryPengusulanItem.getSourceShop()
+                                detailHistoryPengusulanItem.getSourceShop(),
+                                detailHistoryPengusulanItem.getStatuspr(),
+                                detailHistoryPengusulanItem.getStatusconfirmfaculty()
 
                         );
                         listDetailHPeng.add(detailHistoryPengusulan);

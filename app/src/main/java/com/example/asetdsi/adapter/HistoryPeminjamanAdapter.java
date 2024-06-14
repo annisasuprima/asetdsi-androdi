@@ -1,5 +1,6 @@
 package com.example.asetdsi.adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.example.asetdsi.model.Pj;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class HistoryPeminjamanAdapter extends RecyclerView.Adapter<HistoryPeminjamanAdapter.HistoryPeminjamanViewHolder> {
 
@@ -27,7 +29,9 @@ public class HistoryPeminjamanAdapter extends RecyclerView.Adapter<HistoryPeminj
         TextView keterangan_history;
         TextView tanggal_history;
         TextView jam_history;
+        TextView jam_history_end;
         TextView status_history;
+        TextView alasan;
         ImageView logobarang;
 
 
@@ -36,9 +40,11 @@ public class HistoryPeminjamanAdapter extends RecyclerView.Adapter<HistoryPeminj
             keterangan_history = itemView.findViewById(R.id.keterangan_history);
             tanggal_history = itemView.findViewById(R.id.tanggal_history);
             jam_history = itemView.findViewById(R.id.jam_history);
+            jam_history_end= itemView.findViewById(R.id.jam_history_end);
             logobarang = itemView.findViewById(R.id.logobarang);
             status_history = itemView.findViewById(R.id.status_history);
             logobarang = (ImageView)itemView.findViewById(R.id.logobarang);
+            alasan = itemView.findViewById(R.id.alasan);
             itemView.setOnClickListener(this);
         }
 
@@ -81,7 +87,19 @@ public class HistoryPeminjamanAdapter extends RecyclerView.Adapter<HistoryPeminj
         holder.keterangan_history.setText(historyPeminjaman.keterangan_history);
         holder.tanggal_history.setText(historyPeminjaman.tanggal_history);
         holder.jam_history.setText(historyPeminjaman.jam_history);
+        holder.jam_history_end.setText(historyPeminjaman.jam_history_end);
         holder.status_history.setText(historyPeminjaman.status_history);
+
+        if(Objects.equals(historyPeminjaman.status_history, "accepted")){
+            holder.status_history.setBackgroundResource(R.drawable.badge_ijau);
+            holder.alasan.setVisibility(View.GONE);
+        }else{
+            holder.status_history.setBackgroundResource(R.drawable.badge_merah);
+            //            holder.status_history.setBackgroundColor(Color.parseColor("#dc3545"));
+            holder.alasan.setText(historyPeminjaman.alasan);
+        }
+
+
         if(historyPeminjaman.type_id==1) {
             Glide.with(holder.itemView.getContext())
                     .load(R.drawable.barang)

@@ -52,11 +52,14 @@
         app:layout_constraintVertical_bias="1.0"
         app:layout_marginBaseline="20dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            >
+            android:layout_marginTop="50dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -65,9 +68,9 @@
                 android:text="Selamat Datang"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"></TextView>
+                android:textStyle="bold"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -94,13 +97,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            >
+            android:layout_marginTop="30dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="50dp">
+                android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -135,13 +137,12 @@
                     android:textColorHint="@color/muted"
                     app:boxBackgroundColor="@color/white"
                     app:boxBackgroundMode="outline"
-                    app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@color/ijau"
                     app:boxStrokeColor="@color/ijau"
                     app:hintTextColor="@color/black"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/ijau"
                     app:startIconDrawable="@drawable/lock"
-                    app:startIconTint="#1A4D2E"
-                   >
+                    app:startIconTint="#1A4D2E">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/passwordlogin"
@@ -150,36 +151,36 @@
                         android:hint="password"
                         android:inputType="textPassword"
                         android:textColor="@color/black"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
-<!--            <EditText-->
-<!--                android:id="@+id/usernamelogin"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:layout_marginTop="50dp"-->
-<!--                android:background="@drawable/form"-->
-<!--                android:hint="Username"-->
-<!--                android:paddingLeft="10dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textColorHint="@color/muted"-->
-<!--                android:textSize="14sp"-->
-<!--                app:endIconMode="clear_text" />-->
+                <!--            <EditText-->
+                <!--                android:id="@+id/usernamelogin"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="50dp"-->
+                <!--                android:layout_marginTop="50dp"-->
+                <!--                android:background="@drawable/form"-->
+                <!--                android:hint="Username"-->
+                <!--                android:paddingLeft="10dp"-->
+                <!--                android:textColor="@color/black"-->
+                <!--                android:textColorHint="@color/muted"-->
+                <!--                android:textSize="14sp"-->
+                <!--                app:endIconMode="clear_text" />-->
 
 
-<!--            <EditText-->
-<!--                android:id="@+id/passwordlogin"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:layout_below="@id/usernamelogin"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@drawable/form"-->
-<!--                android:hint="Password"-->
-<!--                android:inputType="textPassword"-->
-<!--                android:paddingLeft="10dp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textColorHint="@color/muted"-->
-<!--                android:textSize="14sp"-->
-<!--                app:endIconMode="password_toggle" />-->
+                <!--            <EditText-->
+                <!--                android:id="@+id/passwordlogin"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="50dp"-->
+                <!--                android:layout_below="@id/usernamelogin"-->
+                <!--                android:layout_marginTop="20dp"-->
+                <!--                android:background="@drawable/form"-->
+                <!--                android:hint="Password"-->
+                <!--                android:inputType="textPassword"-->
+                <!--                android:paddingLeft="10dp"-->
+                <!--                android:textColor="@color/black"-->
+                <!--                android:textColorHint="@color/muted"-->
+                <!--                android:textSize="14sp"-->
+                <!--                app:endIconMode="password_toggle" />-->
 
 
                 <Button
@@ -200,32 +201,34 @@
                     android:textSize="16sp"
                     app:cornerRadius="10dp" />
 
-            <TextView
-                android:id="@+id/donthaveacc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/BtnLogin"
-                android:layout_marginTop="30dp"
-                android:text="I Don't Have Account"
-                android:textAlignment="center"
-                android:textColor="@color/muted"
-                android:textSize="14sp" />
+                <!--            <TextView-->
+                <!--                android:id="@+id/donthaveacc"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_below="@id/BtnLogin"-->
+                <!--                android:layout_marginTop="30dp"-->
+                <!--                android:text="I Don't Have Account"-->
+                <!--                android:textAlignment="center"-->
+                <!--                android:textColor="@color/muted"-->
+                <!--                android:textSize="14sp" />-->
 
-            <TextView
-                android:id="@+id/idCreateAccTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/donthaveacc"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="20dp"
-                android:text="Create Account"
-                android:textAlignment="center"
-                android:textColor="@color/muted"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                <!--            <TextView-->
+                <!--                android:id="@+id/idCreateAccTxt"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_below="@id/donthaveacc"-->
+                <!--                android:layout_marginTop="3dp"-->
+                <!--                android:layout_marginBottom="20dp"-->
+                <!--                android:text="Create Account"-->
+                <!--                android:textAlignment="center"-->
+                <!--                android:textColor="@color/muted"-->
+                <!--                android:textSize="14sp"-->
+                <!--                android:textStyle="bold" />-->
 
             </LinearLayout>
         </RelativeLayout>
+
+        </LinearLayout>
 
 
     </RelativeLayout>

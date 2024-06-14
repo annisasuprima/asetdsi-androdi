@@ -24,6 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -46,13 +47,13 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         //TextView
-        idCreateAccTxt = findViewById(R.id.idCreateAccTxt);
-        idCreateAccTxt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                RegisterActivity();
-            }
-        });
+//        idCreateAccTxt = findViewById(R.id.idCreateAccTxt);
+//        idCreateAccTxt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                RegisterActivity();
+//            }
+//        });
 
         //FireBase Registration Token
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(
@@ -63,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
                             String token = task.getResult();
                             Log.d("fcm-token",token);
                             remember_token = token;
-
                         }
 
                     }
@@ -102,6 +102,9 @@ public class LoginActivity extends AppCompatActivity {
 
         PortalClient client = retrofit.create(PortalClient.class);
 //        Log.d("fcmtoken",remember_token);
+
+        //SweetAlert
+        SweetAlertDialog sweetDialog = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.PROGRESS_TYPE);
         Call<AuthClass> call = client.checkLogin(username, password,remember_token);
 
         call.enqueue(new Callback<AuthClass>() {
@@ -116,7 +119,6 @@ public class LoginActivity extends AppCompatActivity {
                     String nim = data.getNim();
                     String username = data.getUsername();
 
-
                     SharedPreferences preferences =
                             getSharedPreferences("com.example.asetdsi.PREFS", MODE_PRIVATE);
 
@@ -128,14 +130,18 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("EMAIL",email);
                     editor.putString("USERNAME",username);
 //
-                    editor.apply();
+//                    editor.apply();
+                    editor.commit();
 
-                    Toast.makeText(getApplicationContext(), token, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), token, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
+                    new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Gagal")
+                            .setContentText("Login Gagal")
+                            .show();
 
                 }
 
@@ -144,8 +150,10 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<AuthClass> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
-                Log.d("P3S4N", t.getMessage());
+                sweetDialog.dismiss();
+                new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText("Koneksi Gagal")
+                        .show();
             }
         });
     }

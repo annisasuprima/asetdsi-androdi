@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ import com.example.asetdsi.model.DetailHistoryPeminjamanResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,7 +41,9 @@ public class DetailHistoryPeminjamanActivity extends AppCompatActivity {
     TextView keterangan_history_dpnj;
     TextView tanggal_history_dpnj;
     TextView jam_history_dpnj;
+    TextView jam_history_dpnj_end;
     TextView status_history_dpnj;
+    TextView alasan_dpnj;
     ImageView logobarang_dpnj;
 
     @Override
@@ -68,9 +72,24 @@ public class DetailHistoryPeminjamanActivity extends AppCompatActivity {
         jam_history_dpnj = findViewById(R.id.jam_history_dpnj);
         jam_history_dpnj.setText(jam_history);
 
+        String jam_history_end = HistorypeminjamanIntent.getStringExtra("jam_history_end");
+        jam_history_dpnj_end = findViewById(R.id.jam_history_dpnj_end);
+        jam_history_dpnj_end.setText(jam_history_end);
+
         String status_history = HistorypeminjamanIntent.getStringExtra("status_history");
         status_history_dpnj = findViewById(R.id.status_history_dpnj);
         status_history_dpnj.setText(status_history);
+
+        String alasan = HistorypeminjamanIntent.getStringExtra("alasan");
+        alasan_dpnj = findViewById(R.id.alasan_dpnj);
+
+        if(Objects.equals(status_history_dpnj.getText(), "accepted")){
+            status_history_dpnj.setBackgroundResource(R.drawable.badge_ijau);
+            alasan_dpnj.setText(alasan);
+        }else{
+            status_history_dpnj.setBackgroundResource(R.drawable.badge_merah);
+            alasan_dpnj.setText(alasan);
+        }
 
 
         actionBar = getSupportActionBar();
@@ -113,7 +132,8 @@ public class DetailHistoryPeminjamanActivity extends AppCompatActivity {
                         DetailHistoryPeminjaman detailHistoryPeminjaman = new DetailHistoryPeminjaman(
                                 detailHistoryPeminjamanItem.getNamaAset(),
                                 detailHistoryPeminjamanItem.getMerkBarang(),
-                                detailHistoryPeminjamanItem.getJumlah()
+                                detailHistoryPeminjamanItem.getJumlah(),
+                                detailHistoryPeminjamanItem.getStatus_pj()
 
                         );
                         listDetailHP.add(detailHistoryPeminjaman);

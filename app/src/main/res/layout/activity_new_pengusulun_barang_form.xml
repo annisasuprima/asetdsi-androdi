@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewPengusulunBarangFormActivity"
+    android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="15dp"
+
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="20dp"
+                    android:text="Form Pengusulan Barang"
+                    android:textAllCaps="true"
+                    android:textColor="@color/ijau"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/muted"
+                    android:visibility="visible" />
+
+                <!--            <com.google.android.material.textfield.TextInputLayout-->
+                <!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginTop="37dp"-->
+
+                <!--                android:padding="5dp"-->
+                <!--                android:paddingStart="15dp"-->
+                <!--                android:paddingEnd="15dp"-->
+                <!--                android:textColorHint="@color/muted"-->
+                <!--                app:boxBackgroundColor="@color/white"-->
+                <!--                app:boxBackgroundMode="outline"-->
+                <!--                app:boxStrokeColor="@color/ijau"-->
+                <!--                app:hintTextColor="@color/black">-->
+
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                    android:id="@+id/keterangan_pengusulanbrg"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:hint="Keterangan Pengusulan"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="14sp" />-->
+                <!--            </com.google.android.material.textfield.TextInputLayout>-->
+            </RelativeLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <View
+                        android:id="@+id/divider"
+                        android:background="@color/muted"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/newlayout_barang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"></LinearLayout>
+
+
+                    <LinearLayout
+                        android:paddingTop="10dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:elevation="3dp">
+
+                        <Button
+                            android:id="@+id/BtnNewTambahBarang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="1dp"
+                            android:text="Barang"
+                            android:textSize="12sp"
+                            android:layout_marginStart="25dp"
+                            android:textColor="@color/ijau"
+                            android:backgroundTint="@color/abu"
+                            android:drawableLeft="@drawable/ic_baseline_add_ijau"
+                            android:drawablePadding="8dp"
+
+                            >
+
+                        </Button>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp" />
+
+                        <Button
+                            android:id="@+id/BtnNewTambahDoneBrg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginEnd="25dp"
+                            android:backgroundTint="@color/ijau"
+                            android:text="Tambah"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

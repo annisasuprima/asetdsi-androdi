@@ -26,6 +26,7 @@ public class OngoingPeminjamanAdapter extends RecyclerView.Adapter<OngoingPeminj
         TextView keterangan_ongoing;
         TextView tanggal_ongoing;
         TextView jam_ongoing;
+        TextView jam_ongoing_end;
         TextView status_ongoing;
         ImageView logobarangongoing;
 
@@ -34,6 +35,7 @@ public class OngoingPeminjamanAdapter extends RecyclerView.Adapter<OngoingPeminj
             keterangan_ongoing = itemView.findViewById(R.id.keterangan_ongoing);
             tanggal_ongoing = itemView.findViewById(R.id.tanggal_ongoing);
             jam_ongoing = itemView.findViewById(R.id.jam_ongoing);
+            jam_ongoing_end=itemView.findViewById(R.id.jam_ongoing_end);
             status_ongoing = itemView.findViewById(R.id.status_ongoing);
             logobarangongoing = (ImageView)itemView.findViewById(R.id.logobarangongoing);
 
@@ -82,6 +84,7 @@ public class OngoingPeminjamanAdapter extends RecyclerView.Adapter<OngoingPeminj
         holder.keterangan_ongoing.setText(ongoingPeminjaman.keterangan_ongoing);
         holder.tanggal_ongoing.setText(ongoingPeminjaman.tanggal_ongoing);
         holder.jam_ongoing.setText(ongoingPeminjaman.jam_ongoing);
+        holder.jam_ongoing_end.setText(ongoingPeminjaman.jam_ongoing_end);
         holder.status_ongoing.setText(ongoingPeminjaman.status_ongoing);
         if(ongoingPeminjaman.type_id==1) {
             Glide.with(holder.itemView.getContext())

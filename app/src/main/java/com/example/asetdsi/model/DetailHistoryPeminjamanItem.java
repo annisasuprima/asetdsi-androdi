@@ -19,11 +19,17 @@ public class DetailHistoryPeminjamanItem{
     @SerializedName("statuspj")
     private String statuspj;
 
+    @SerializedName("status_pj")
+    private String status_pj;
+
     @SerializedName("nama_aset")
     private String namaAset;
 
     @SerializedName("waktu")
     private String waktu;
+
+    @SerializedName("waktu_akhir")
+    private String waktuAkhir;
 
     @SerializedName("tanggal")
     private String tanggal;
@@ -62,6 +68,9 @@ public class DetailHistoryPeminjamanItem{
     public String getStatuspj(){
         return statuspj;
     }
+    public String getStatus_pj(){
+        return status_pj;
+    }
 
     public String getNamaAset(){
         return namaAset;
@@ -69,6 +78,10 @@ public class DetailHistoryPeminjamanItem{
 
     public String getWaktu(){
         return waktu;
+    }
+
+    public String getWaktuAkhir(){
+        return waktuAkhir;
     }
 
     public String getTanggal(){

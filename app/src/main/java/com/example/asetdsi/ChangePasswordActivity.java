@@ -20,6 +20,7 @@ import com.example.asetdsi.Retrofit.PortalClient;
 import com.example.asetdsi.model.ChangePasswordClass;
 import com.google.android.material.textfield.TextInputEditText;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -73,7 +74,7 @@ public String passwordlamaC, passwordbaru1C, passwordbaru2C;
                 passwordbaru1C = new_password.getText().toString();
                 passwordbaru2C = confirm_new_password.getText().toString();
                 updatePassword();
-                SettingActivity();
+//                SettingActivity();
 
             }
         });
@@ -95,6 +96,8 @@ public String passwordlamaC, passwordbaru1C, passwordbaru2C;
 
         PortalClient client = retrofit.create(PortalClient.class);
 
+        //SweetAlert
+        SweetAlertDialog sweetDialog = new SweetAlertDialog(ChangePasswordActivity.this, SweetAlertDialog.PROGRESS_TYPE);
         Call<ChangePasswordClass> call = client.getChangePassword("Bearer "+accessToken, passwordlamaC, passwordbaru1C, passwordbaru2C);
         call.enqueue(new Callback<ChangePasswordClass>(){
 
@@ -104,20 +107,34 @@ public String passwordlamaC, passwordbaru1C, passwordbaru2C;
 
                 if(response.body() != null && response.isSuccessful())
                 {
-                    Intent intent = new Intent(ChangePasswordActivity.this, SettingActivity.class);
-                    startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "Mantap Sudah berubah yaa", Toast.LENGTH_SHORT).show();
+                    new SweetAlertDialog(ChangePasswordActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                            .setTitleText("Berhasil")
+                            .setContentText("Ubah Password Berhasil!")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    Intent intent = new Intent(ChangePasswordActivity.this, SettingActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            })
+                            .show();
 
-                    finish();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
+                    new SweetAlertDialog(ChangePasswordActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Gagal")
+                            .setContentText("Ubah Password Gagal")
+                            .show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<ChangePasswordClass> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
+                sweetDialog.dismiss();
+                new SweetAlertDialog(ChangePasswordActivity.this, SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText("Koneksi Gagal")
+                        .show();
             }
         });
     }

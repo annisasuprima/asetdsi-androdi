@@ -1,10 +1,6 @@
 package com.example.asetdsi.model;
 
 public class PeminjamanBangunan {
-
-
-
-
     public String nama_bgn_pnj;
     public String status_bgn_pnj;
     public String gambarbgn_pnj;
